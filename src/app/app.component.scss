@@ -1,0 +1,16 @@
+@import "vars";
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $large-spacing;
+  border-bottom: 1px solid $light-grey;
+
+  .app-header-title {
+    color: $primary-blue;
+    @media (max-width: $screen-xs) {
+      display: none;
+    }
+  }
+}

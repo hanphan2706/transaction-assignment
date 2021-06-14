@@ -1,0 +1,13 @@
+<div class="app-card">
+  <div class="app-card-header">
+    <i class="lni lni-{{ icon }}"></i>
+    <ng-content select="[content-title]"></ng-content>
+  </div>
+
+  <div
+    class="app-card-body"
+    [ngClass]="[hasBorderBottom ? 'has-border-bottom' : '']"
+  >
+    <ng-content></ng-content>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+@import "vars";
+
+.form-button {
+  text-align: right;
+}
+
+#modal-review {
+  .modal-header {
+    font-size: 1.5rem;
+  }
+  .modal-body {
+    width: 400px;
+    .modal-content {
+      margin-bottom: $large-spacing;
+    }
+    .modal-content-label {
+      margin-bottom: $medium-spacing;
+    }
+  }
+  .modal-footer {
+    text-align: right;
+    .btn {
+      margin-left: $medium-spacing;
+    }
+  }
+}

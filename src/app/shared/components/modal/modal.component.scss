@@ -1,0 +1,46 @@
+@import "vars";
+
+.app-modal-bg {
+  z-index: $modalBgZIndex;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: $black;
+  opacity: 0.3;
+}
+
+.app-modal {
+  z-index: $modalZIndex;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: $white;
+  border-radius: $radius;
+}
+
+.app-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $large-spacing;
+  border-bottom: 1px solid $light-grey;
+}
+
+.app-modal-body {
+  padding: $large-spacing;
+}
+
+.app-modal-footer {
+  border-top: 1px solid $light-grey;
+  padding: $large-spacing;
+}
+
+.lni-close {
+  font-size: 0.8rem;
+  color: $grey;
+  font-weight: bold;
+  cursor: pointer;
+}

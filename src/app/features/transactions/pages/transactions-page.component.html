@@ -1,0 +1,13 @@
+<section class="app-transactions-page">
+  <div class="app-transactions-page-bg"></div>
+  <div class="app-transactions-page-main-content">
+    <div class="app-transactions-page-main-content--left">
+      <app-transfer-form
+        (onSubmitTransferForm)="handleSubmitTransferForm($event)"
+      ></app-transfer-form>
+    </div>
+    <div class="app-transactions-page-main-content--right">
+      <app-transactions [newTransfer]="newTransfer"></app-transactions>
+    </div>
+  </div>
+</section>

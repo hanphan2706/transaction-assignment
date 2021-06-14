@@ -1,0 +1,30 @@
+@import "vars";
+
+.app-card {
+  .app-card-header {
+    background-color: $primary-blue;
+    padding: $large-spacing;
+    border-top-left-radius: $radius-4x;
+    border-top-right-radius: $radius-4x;
+    color: white;
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: lighter;
+
+    i.lni {
+      margin-right: $large-spacing;
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+  }
+  .app-card-body {
+    padding: $large-spacing;
+    background-color: white;
+
+    &.has-border-bottom {
+      border-bottom-left-radius: $radius-4x;
+      border-bottom-right-radius: $radius-4x;
+    }
+  }
+}

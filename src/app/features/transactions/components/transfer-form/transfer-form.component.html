@@ -1,0 +1,110 @@
+<app-card [icon]="'credit-cards'" [hasBorderBottom]="true">
+  <span content-title><strong>Make</strong> Transfer</span>
+  <form
+    id="transfer-form"
+    [formGroup]="transferForm"
+    #formDir="ngForm"
+    (ngSubmit)="onSubmit()"
+  >
+    <div class="form-group">
+      <div class="input-label"><label>From Account</label></div>
+      <div class="input-group">
+        <input
+          class="form-control"
+          type="text"
+          [value]="transactionFormData.fromAccount"
+          id="formAccount"
+          disabled
+        />
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="input-label"><label>To Account</label></div>
+      <div class="input-group">
+        <input
+          type="text"
+          placeholder="type an account name"
+          formControlName="toAccount"
+          class="form-control"
+          [class.has-error]="
+            toAccount.invalid && (toAccount.dirty || toAccount.touched)
+          "
+        />
+      </div>
+      <div
+        *ngIf="toAccount.invalid && (toAccount.dirty || toAccount.touched)"
+        class="form-error"
+        id="toAccountErrorRequired"
+      >
+        This field is required.
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="input-label">
+        <label>Amount</label>
+      </div>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text"><i class="lni lni-euro"></i></div>
+        </div>
+        <input
+          type="number"
+          placeholder="specify the amount"
+          formControlName="amount"
+          class="form-control has-icon"
+          [class.has-error]="amount.invalid && (amount.dirty || amount.touched)"
+        />
+      </div>
+      <div
+        *ngIf="amount.invalid && (amount.dirty || amount.touched)"
+        class="form-error"
+      >
+        <div id="amountErrorRequired" *ngIf="amount.errors?.required">This field is required.</div>
+        <div id="amountErrorPattern" *ngIf="amount.errors?.pattern">Please enter a number</div>
+        <div id="ammountErrorCurrency" *ngIf="amount.errors?.currency">There is not enough balance</div>
+      </div>
+    </div>
+    <div class="form-button">
+      <app-submit-button
+        [disabled]="transferForm.pristine || transferForm.invalid"
+      >
+        Submit
+      </app-submit-button>
+    </div>
+  </form>
+</app-card>
+
+<ng-container #vc></ng-container>
+
+<ng-template #modalReview>
+  <app-modal id="modal-review" (onClose)="onCloseReviewModal()">
+    <span class="modal-header" modal-header
+      ><strong>Review</strong> Transfer</span
+    >
+    <div class="modal-body" modal-body>
+      <div class="modal-content">
+        <i>Are you ready to send out this transfer?</i>
+      </div>
+      <div class="modal-content">
+        <div class="modal-content-label">
+          <strong>It will be send to account:</strong>
+        </div>
+        <div>{{ toAccount.value }}</div>
+      </div>
+      <div>
+        <div class="modal-content-label">
+          <strong>With the amount of:</strong>
+        </div>
+        <div>€ {{ amount.value }}</div>
+      </div>
+    </div>
+    <div class="modal-footer" modal-footer>
+      <button class="btn btn-secondary" (click)="onCloseReviewModal()">
+        Close
+      </button>
+      <button class="btn btn-primary btn-send-transfer" (click)="onSendTransfer()">
+        Send Transfer
+      </button>
+    </div>
+  </app-modal>
+</ng-template>

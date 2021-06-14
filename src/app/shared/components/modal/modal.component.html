@@ -1,0 +1,13 @@
+<div class="app-modal">
+  <div class="app-modal-header">
+    <ng-content select="[modal-header]"></ng-content>
+    <i class="lni lni-close" (click)="onCloseBtnClicked($event)"></i>
+  </div>
+  <div class="app-modal-body">
+    <ng-content select="[modal-body]"></ng-content>
+  </div>
+  <div class="app-modal-footer">
+    <ng-content select="[modal-footer]"></ng-content>
+  </div>
+</div>
+<div class="app-modal-bg"></div>

@@ -1,0 +1,68 @@
+@import "vars";
+
+.app-transactions-page {
+  position: relative;
+  height: calc(100vh - 120px);
+  display: flex;
+  justify-content: center;
+
+  .app-transactions-page-bg {
+    background-image: url("/assets/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    filter: blur(8px);
+    -webkit-filter: blur(2px);
+    z-index: -1;
+  }
+
+  .app-transactions-page-main-content {
+    max-width: $screen-xl;
+    display: flex;
+    justify-content: space-between;
+    padding: $large-spacing * 2;
+    width: 100%;
+
+    .app-transactions-page-main-content--left {
+      flex: 30%;
+      margin-right: $large-spacing * 2;
+    }
+    .app-transactions-page-main-content--right {
+      flex: 70%;
+      width: 100%;
+    }
+  }
+
+  @media (max-width: $screen-lg) {
+    .app-transactions-page-main-content {
+      .app-transactions-page-main-content--left {
+        flex: 40%;
+      }
+
+      .app-transactions-page-main-content--right {
+        flex: 60%;
+      }
+    }
+  }
+
+  @media (max-width: $screen-xs) {
+    height: auto;
+
+    .app-transactions-page-main-content {
+      flex-direction: column;
+      padding: $large-spacing;
+
+      .app-transactions-page-main-content--left {
+        flex: 1;
+        margin-right: 0;
+        margin-bottom: $large-spacing;
+      }
+
+      .app-transactions-page-main-content--right {
+        flex: 1;
+      }
+    }
+  }
+}

@@ -1,0 +1,37 @@
+<app-card [icon]="'list'">
+  <span content-title>Transactions <strong>List</strong></span>
+  <div>
+    <app-filter (inputChange)="handleInputChange($event)"></app-filter>
+    <div class="transactions-container">
+      <div class="transaction-item" *ngFor="let transaction of filteredTransactions">
+        <app-transaction-item>
+          <span
+            transactionColour
+            class="transaction-color"
+            [ngStyle]="{ 'background-color': transaction.categoryCode }"
+          ></span>
+          <span transactionDate>{{
+            getDate(transaction.dates.valueDate)
+          }}</span>
+          <p transactionMerchantName class="transaction-merchant-name">
+            {{ transaction.merchant.name }}
+          </p>
+          <span transactionType class="transaction-type"
+            >{{ transaction.transaction.type }}
+          </span>
+          <span
+            transactionAmount
+            [ngStyle]="{
+              color:
+                transaction.transaction.creditDebitIndicator === 'DBIT' ? '#e76c75' : '#51b461'
+            }"
+            >{{
+              transaction.transaction.amountCurrency.amount
+                | currency: transaction.transaction.amountCurrency.currencyCode
+            }}
+          </span>
+        </app-transaction-item>
+      </div>
+    </div>
+  </div>
+</app-card>

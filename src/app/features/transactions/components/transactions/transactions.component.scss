@@ -1,0 +1,31 @@
+@import "vars";
+
+.transactions-container {
+  min-height: calc(100vh - 350px);
+  max-height: calc(100vh - 350px);
+  overflow: scroll;
+  .transaction-item {
+    app-transaction-item {
+      display: flex;
+      padding: $large-spacing 0;
+      border-bottom: 1px solid $light-grey;
+      align-items: center;
+    }
+
+    .transaction-merchant-name {
+      margin: 0;
+      font-size: 1rem;
+      line-height: 1rem;
+    }
+    .transaction-type {
+      font-size: 0.8rem;
+      color: $grey;
+    }
+
+    .transaction-color {
+      height: 70px;
+      width: $small-spacing;
+      margin-right: $medium-spacing;
+    }
+  }
+}

@@ -1,0 +1,31 @@
+
+// spacing
+$small-spacing: 5px;
+$medium-spacing: 10px;
+$large-spacing: 20px;
+
+// colors
+$primary-blue: #00a1e0;
+$orange: #eb6f31;
+$white: #ffffff;
+$black: #000000;
+$grey: #939393;
+$light-grey: #dadfe2;
+$red: #e76c75;
+
+// screens
+$screen-xs: 480px;
+$screen-sm: 640px;
+$screen-md: 768px;
+$screen-lg: 1024px;
+$screen-xl: 1280px;
+
+//border
+$radius: 4px;
+$radius-2x: $radius * 2;
+$radius-3x: $radius * 3;
+$radius-4x: $radius * 4;
+
+//z-index
+$modalBgZIndex: 999;
+$modalZIndex: 1000;
